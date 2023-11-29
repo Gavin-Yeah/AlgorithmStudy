@@ -5,7 +5,7 @@ public class sort {
         int[] arr = { 2, 4, 1, 3, 6, 3, 2, 1, 7 };
         swap(arr, 1, 2);
         // selectionSort(arr);
-        bubbleSort(arr);
+        insertionSort(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
         }
@@ -51,7 +51,7 @@ public class sort {
         if (arr == null || arr.length < 2)
             return;
         for (int i = 1; i < arr.length; i++) {
-            for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j++) {
+            for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
                 swap(arr, j, j + 1);
             }
         }
@@ -90,12 +90,12 @@ public class sort {
     }
 
     private static void process3(int[] arr, int L, int R) {
-        if(L>=R)
+        if (L >= R)
             return;
-            swap(arr,L + (int) (Math.random()*(R-L+1)), R);
+        swap(arr, L + (int) (Math.random() * (R - L + 1)), R);
         int[] equalLand = netherlandsFlag(arr, L, R);
         process3(arr, L, equalLand[0] - 1);
-        process3(arr, equalLand[1]+1, R);
+        process3(arr, equalLand[1] + 1, R);
     }
 
     // arr[L...R] 荷兰国旗问题的划分，以arr[R]作划分值
