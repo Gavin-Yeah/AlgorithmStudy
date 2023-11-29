@@ -5,8 +5,6 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.jiada.binarytree.traversal.Preorder.TreeNode;
-
 public class Inorder {
 	 public List<Integer> inorderTraversal(TreeNode root) {
 	        List<Integer> list = new ArrayList<>();
@@ -37,5 +35,12 @@ public class Inorder {
 	        }
 	        return list;
 	        
-	} 
+	}
+
+
+}
+class TreeNode{
+	TreeNode left;
+	TreeNode right;
+	int val;
 }

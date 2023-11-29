@@ -2,8 +2,8 @@ package binaryTree.traversal;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
-import com.jiada.binarytree.traversal.Preorder.TreeNode;
 
 public class Postorder {
 	 public List<Integer> postorderTraversalIn(TreeNode root) {
@@ -34,6 +34,25 @@ private void post(TreeNode node, List<Integer> list){
              root=null;
          }
          
+     }
+     return list;
+ }
+ public List<Integer> postorderTraversal2(TreeNode root){
+     List<Integer> list = new LinkedList<>();
+     Stack<TreeNode> stack = new Stack<>();
+     Stack<TreeNode> stack2 = new Stack<>();
+     stack.push(root);
+     while(!stack.isEmpty()) {
+        TreeNode node = stack.pop();
+        if(node == null) continue;
+        stack2.push(node);
+        if(node != null) {
+            stack.push(node.left);
+            stack.push(node.right);
+        }
+     }
+     while(!stack2.isEmpty()){
+         list.add(stack2.pop().val);
      }
      return list;
  }

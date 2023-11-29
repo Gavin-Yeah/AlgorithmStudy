@@ -5,13 +5,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.sound.midi.Soundbank;
-
 public class ReformatingDates {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(reformat("1st Mar 1984"));
+		System.out.println(reformat("1 Aug 1984"));
 	//	System.out.println(Integer.parseInt("1001",2));
 		System.out.println("SS".charAt(1));
 	}
@@ -27,8 +25,8 @@ public class ReformatingDates {
 		}
 		
 		try {
-			DateFormat df=new SimpleDateFormat("ddMMMyyyy");
-			Date d=df.parse(month+split[1]+split[2]);
+			DateFormat df=new SimpleDateFormat("ddd-MMM-yyyy");
+			Date d=df.parse(split[0]+"-"+split[1]+"-" + split[2]);
 			DateFormat df1=new SimpleDateFormat("yyyy-MM-dd");
 			ret=df1.format(d);
 		} catch (ParseException e) {
